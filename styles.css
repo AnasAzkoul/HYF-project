@@ -125,6 +125,10 @@ header::after {
   padding-block: 1rem;
 }
 
+.navbar-desktop {
+  display: none;
+}
+
 .logo {
   text-transform: uppercase;
   font-size: var(--font-size-md);
@@ -184,12 +188,62 @@ header::after {
 }
 
 @media only screen and (min-width: 766px) {
-  .hamburger-menu {
-    transform: translateX(150rem);
+  .navbar {
+    display: none;
   }
 
-  .toggle-hamburger-menu {
-    transform: translateX(0);
+  .hamburger-menu {
+    display: none;
+  }
+
+  .navbar-desktop {
+    display: flex;
+  }
+
+  .desktop-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo {
+    /* font-size: var(--font-size-large); */
+    font-style: italic;
+  }
+
+  .desktop-links li {
+    cursor: pointer;
+  }
+
+  .desktop-links li:not(:nth-child(3)) {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.5s ease;
+  }
+
+  .desktop-links li:not(:nth-child(3)):hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    height: 1px;
+    animation: linkHover 0.5s ease;
+    transform-origin: left;
+  }
+}
+
+@keyframes linkHover {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
 /* ----------------------- Hero section ----------------------- */
