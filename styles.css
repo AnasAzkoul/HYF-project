@@ -567,16 +567,6 @@ header::after {
   position: relative;
 }
 
-.meet-me::before {
-  content: '';
-  position: absolute;
-  top: -2rem;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background-color: black;
-}
-
 .meet-me-details {
   display: flex;
   flex-direction: column;
@@ -637,11 +627,61 @@ header::after {
     justify-content: space-between;
   }
 
-  .meet-me-description button{
+  .meet-me-description button {
     /* align-self: flex-end; */
     justify-self: flex-end;
   }
 }
+/* ----------------------- Recent Work Section ----------------------- */
+.recent-work {
+  padding-block: 10rem;
+}
+
+.carousel-wrapper {
+}
+
+.recent-work-carousel {
+  overflow: hidden;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.recent-work-carousel-item {
+  flex: 0 0 calc(100% / 2);
+}
+
+.recent-work-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 50;
+}
+
+.recent-work-details div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.carousel-nav-btn {
+  background-color: white;
+  padding: 1rem;
+  font-size: var(--font-size-md);
+}
+
+@media only screen and (min-width: 766px) {
+  .recent-work-carousel-item {
+    flex: 0 0 calc(100% / 4);
+  }
+}
+
 /* ----------------------- Utility classes ----------------------- */
 .container {
   max-width: 90%;
@@ -670,4 +710,14 @@ header::after {
 .btn-secondary {
   background-color: var(--background-color-dark);
   color: var(--typ-color);
+}
+
+.break-line::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
 }

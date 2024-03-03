@@ -1,19 +1,19 @@
 // Navbar background functionality ---------------------------------------
-const header = document.querySelector('header'); 
+const header = document.querySelector("header");
 
-function handleScroll () {
-  const scrollTop = window.scrollY; 
+function handleScroll() {
+  const scrollTop = window.scrollY;
 
   if (scrollTop === 0) {
-    header.classList.remove('header-scroll'); 
+    header.classList.remove("header-scroll");
   }
 
-  if(scrollTop > 0) {
-    header.classList.add('header-scroll'); 
+  if (scrollTop > 0) {
+    header.classList.add("header-scroll");
   }
 }
 
-document.addEventListener('scroll', handleScroll); 
+document.addEventListener("scroll", handleScroll);
 // Hamburger menu functionality ------------------------------------------
 
 const openSideMenuBtn = document.querySelector(".hamburger-btn");
@@ -35,8 +35,6 @@ const resetActiveItem = () => {
   } else {
     activeItem = 0;
   }
-
-  console.log(activeItem);
 };
 
 setInterval(() => {
@@ -49,3 +47,28 @@ setInterval(() => {
   });
   resetActiveItem();
 }, 5000);
+
+// carousel functionality for recent work ------------------------------------------
+
+const carousel = document.querySelector(".recent-work-carousel");
+const btnLeft = document.getElementById("left"); 
+
+let isDragStart = false;
+
+const dragStart = (e) => {
+  e.preventDefault();
+  isDragStart = true; 
+};
+
+const dragging = (e) => {
+  // if (!isDragStart) return;
+  // e.preventDefault();
+  // carousel.scrollLeft = e.pageX;
+  // console.log(typeof carousel.scrollLeft)
+};
+
+carousel.addEventListener("mousemove", dragging);
+btnLeft.addEventListener("click", (e) => {
+  carousel.scrollLeft = e.pageX; 
+  console.log('click'); 
+})
