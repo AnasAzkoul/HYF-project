@@ -488,6 +488,16 @@ header::after {
   );
 }
 
+.gatherings {
+  background: linear-gradient(
+    85deg,
+    var(--background-btn),
+    var(--background-btn) 65%,
+    var(--background-color) 35%,
+    var(--background-color)
+  );
+}
+
 @media only screen and (min-width: 766px) {
   .services-intro {
     max-width: 65%;
@@ -520,7 +530,7 @@ header::after {
     transform: translateX(5rem);
     padding-inline: 7rem;
     padding-block: 5rem;
-    z-index: 100;
+    z-index: 50;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     background-color: white;
@@ -529,6 +539,15 @@ header::after {
   .service-card-img {
     grid-row: 1 / 2;
     grid-column: 2 /3;
+  }
+
+  .reversed-description {
+    grid-column: 2 / 3;
+    transform: translateX(-10rem);
+  }
+
+  .reversed-img {
+    grid-column: 1 / 2;
   }
 
   .service-card-img img {
