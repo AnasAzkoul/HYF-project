@@ -14,8 +14,8 @@
   --font-size-small: 0.8rem;
   --font-size-base: 1rem; /* Typically 16px if the user's browser default is set to 16px */
   --font-size-md: 1.5rem;
-  --font-size-large: 2rem;
-  --font-size-xlarge: 2.5rem;
+  --font-size-large: clamp(2.5rem, 2vw, 4rem);
+  --font-size-xlarge: clamp(3.2rem, 2vw, 4rem);
   /* Font Family */
   --font-header: "Josefin Sans", sans-serif;
   --font-content: "Cardo", serif;
@@ -89,11 +89,40 @@ img {
 }
 
 /* ----------------------- Navbar ----------------------- */
+header {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  background-color: transparent;
+  height: 4rem;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-scroll {
+  background-color: var(--background-color);
+}
+
+header .container {
+  width: 100%;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 1px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   padding-block: 1rem;
-  z-index: 50;
 }
 
 .logo {
@@ -103,23 +132,24 @@ img {
 
 .hamburger-menu {
   position: absolute;
+  height: 100vh;
   top: 0;
   right: 0;
   width: 80%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--background-color-dark);
-  position: absolute;
   transform: translateX(100rem);
   transition: transform 0.3s linear;
-  z-index: 50;
+  z-index: 200;
 }
 
 .hamburger-btn {
-  z-index: 100;
   transition: transform 0.2s linear;
+  position: fixed;
+  right: 2.5rem;
+  z-index: 1000;
 }
 
 .hamburger-btn i {
@@ -187,9 +217,9 @@ img {
 .hero-text {
   color: inherit;
   position: absolute;
-  font-size: var(--font-size-xlarge);
-  top: 3rem;
-  left: 35%;
+  font-size: var(--font-size-large);
+  top: 7rem;
+  left: 30%;
   transform: translateX(-50%);
   text-transform: uppercase;
   z-index: 20;
@@ -237,7 +267,7 @@ img {
 }
 
 .studio-container {
-  max-width: 65%;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -288,10 +318,11 @@ img {
 
 @media only screen and (min-width: 766px) {
   .studio-container {
+    max-width: 65%;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     gap: 4rem;
-    padding-block: 8rem;
+    padding-block: 14rem;
   }
 
   .studio-info h2 {
@@ -318,7 +349,7 @@ img {
 }
 
 .services-intro {
-  max-width: 75%;
+  max-width: 90%;
   margin: 0 auto;
   padding-bottom: 8rem;
   display: flex;
@@ -332,7 +363,7 @@ img {
 }
 
 .services-intro h2 {
-  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 2vw, 4rem);
 }
 
 .service-card {
@@ -342,10 +373,9 @@ img {
 .service-card-details {
   display: grid;
   row-gap: 2rem;
-  position: relative;
+  grid-auto-rows: minmax(min-content, 30rem);
   max-width: 90%;
   margin: 0 auto;
-  grid-auto-rows: minmax(min-content, 30rem);
 }
 
 .service-card-description {
@@ -360,6 +390,7 @@ img {
   background-color: var(--background-color);
   grid-row: 2 / 3;
 }
+
 .service-card-img {
   position: relative;
   grid-row: 1 / 2;
@@ -378,7 +409,7 @@ img {
 }
 
 .service-card-details h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 2vw, 8rem);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -404,12 +435,8 @@ img {
 }
 
 @media only screen and (min-width: 766px) {
-  .our-services {
-    padding-block: 8rem;
-  }
-
   .services-intro {
-    max-width: 40%;
+    max-width: 65%;
     gap: 3rem;
     line-height: 4rem;
   }
@@ -455,14 +482,14 @@ img {
   }
 
   .service-card-details p {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-md);
     line-height: 2.7rem;
   }
 }
 
 /* ----------------------- Utility classes ----------------------- */
 .container {
-  max-width: 65%;
+  max-width: 90%;
   margin: 0 auto;
 }
 

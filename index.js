@@ -1,3 +1,19 @@
+// Navbar background functionality ---------------------------------------
+const header = document.querySelector('header'); 
+
+function handleScroll () {
+  const scrollTop = window.scrollY; 
+
+  if (scrollTop === 0) {
+    header.classList.remove('header-scroll'); 
+  }
+
+  if(scrollTop > 0) {
+    header.classList.add('header-scroll'); 
+  }
+}
+
+document.addEventListener('scroll', handleScroll); 
 // Hamburger menu functionality ------------------------------------------
 
 const openSideMenuBtn = document.querySelector(".hamburger-btn");
