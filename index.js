@@ -51,24 +51,18 @@ setInterval(() => {
 // carousel functionality for recent work ------------------------------------------
 
 const carousel = document.querySelector(".recent-work-carousel");
-const btnLeft = document.getElementById("left"); 
+const carouselItem = document.querySelector(".recent-work-carousel-item");
+const btnLeft = document.getElementById("left");
+const btnRight = document.getElementById("right");
 
-let isDragStart = false;
+const carouselItemWidth = carouselItem.clientWidth;
 
-const dragStart = (e) => {
-  e.preventDefault();
-  isDragStart = true; 
-};
+console.log(carouselItemWidth); 
 
-const dragging = (e) => {
-  // if (!isDragStart) return;
-  // e.preventDefault();
-  // carousel.scrollLeft = e.pageX;
-  // console.log(typeof carousel.scrollLeft)
-};
+btnLeft.addEventListener("click", () => {
+  carousel.scrollLeft -= carouselItemWidth;
+});
 
-carousel.addEventListener("mousemove", dragging);
-btnLeft.addEventListener("click", (e) => {
-  carousel.scrollLeft = e.pageX; 
-  console.log('click'); 
+btnRight.addEventListener("click", () => {
+  carousel.scrollLeft += carouselItemWidth; 
 })
