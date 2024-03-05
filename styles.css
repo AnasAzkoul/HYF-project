@@ -599,7 +599,8 @@ header::after {
 
 .meet-me-description p {
   font-size: 1.5rem;
-  line-height: 1.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
 }
 
 .meet-me-description button {
@@ -647,9 +648,22 @@ header::after {
   background-size: cover;
   position: relative;
   color: white;
+  position: relative;
+}
+
+.testimonials .container {
+  max-width: 50rem;
+  overflow: hidden;
+  /* border: 10px black solid; */
+}
+
+.slider {
+  display: flex;
+  transition: translate 0.3s ease-in-out;
 }
 
 .slide {
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -667,12 +681,14 @@ header::after {
   max-width: 45rem;
   font-size: 1.6rem;
   line-height: 1.5;
+  letter-spacing: 0.6px;
   text-align: center;
 }
 
 .slide-author {
   font-size: var(--font-size-md);
   text-transform: uppercase;
+  font-style: italic;
 }
 
 .btn-container {
@@ -682,7 +698,31 @@ header::after {
 }
 
 .carousel-nav-btn {
-  
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  color: #595c4e;
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.testimonials .container:hover .carousel-nav-btn {
+  color: white;
+}
+
+#left {
+  left: 20%;
+}
+
+#right {
+  right: 20%;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 @media only screen and (min-width: 766px) {
